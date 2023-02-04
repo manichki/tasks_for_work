@@ -1,0 +1,12 @@
+SELECT
+  name, second_name, partonymic,
+  COUNT(Results.athlete_id) AS total_competitions
+FROM
+  Athletes
+  LEFT JOIN Results ON Athletes.athlete_id = Results.athlete_id
+GROUP BY
+  Athletes.athlete_id
+ORDER BY
+  total_competitions DESC
+LIMIT 5;
+
